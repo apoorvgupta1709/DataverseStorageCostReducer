@@ -1,0 +1,30 @@
+# Build and output directories
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+build/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+*.DotSettings.user
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+
+# JetBrains Rider
+.idea/
+
+# Windows / OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

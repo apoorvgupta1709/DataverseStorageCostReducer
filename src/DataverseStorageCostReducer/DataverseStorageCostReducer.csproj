@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>DataverseStorageCostReducer</AssemblyName>
+    <RootNamespace>DataverseStorageCostReducer</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XrmToolBoxPackage" Version="1.2025.7.71" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.59" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+
+  <Target Name="DeployToXrmToolBox" AfterTargets="Build">
+    <PropertyGroup>
+      <XrmDownloadsDir>C:\Users\apoorv\Downloads\XrmToolbox</XrmDownloadsDir>
+      <XrmDownloadsPluginsDir>C:\Users\apoorv\Downloads\XrmToolbox\Plugins</XrmDownloadsPluginsDir>
+      <XrmAppDataPluginsDir>$(AppData)\MscrmTools\XrmToolBox\Plugins</XrmAppDataPluginsDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <DeployFiles Include="$(TargetPath)" />
+      <DeployFiles Include="$(TargetDir)$(TargetName).pdb" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeployFiles)" DestinationFolder="$(XrmDownloadsDir)" ContinueOnError="true" />
+    <Copy SourceFiles="@(DeployFiles)" DestinationFolder="$(XrmDownloadsPluginsDir)" ContinueOnError="true" />
+    <Copy SourceFiles="@(DeployFiles)" DestinationFolder="$(XrmAppDataPluginsDir)" Condition="Exists('$(XrmAppDataPluginsDir)')" ContinueOnError="true" />
+  </Target>
+
+</Project>
