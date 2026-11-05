@@ -25,6 +25,7 @@ namespace DataverseStorageCostReducer.UI
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPurgeWizard = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
+            this.btnSponsor = new System.Windows.Forms.ToolStripButton();
             this.pnlCards = new System.Windows.Forms.Panel();
             this.pnlCardSavings = new System.Windows.Forms.Panel();
             this.lblCardSavingsVal = new System.Windows.Forms.Label();
@@ -110,7 +111,8 @@ namespace DataverseStorageCostReducer.UI
             this.btnExportCsv,
             this.toolStripSeparator2,
             this.btnPurgeWizard,
-            this.btnCancel});
+            this.btnCancel,
+            this.btnSponsor});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(8, 4, 8, 4);
@@ -170,6 +172,17 @@ namespace DataverseStorageCostReducer.UI
             this.btnCancel.Size = new System.Drawing.Size(66, 28);
             this.btnCancel.Text = "⏹ Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSponsor
+            // 
+            this.btnSponsor.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSponsor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSponsor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(114)))), ((int)(((byte)(182)))));
+            this.btnSponsor.Name = "btnSponsor";
+            this.btnSponsor.Size = new System.Drawing.Size(155, 28);
+            this.btnSponsor.Text = "☕ Donate / Support";
+            this.btnSponsor.ToolTipText = "Support developer & donate to continuous development";
+            this.btnSponsor.Click += new System.EventHandler(this.btnSponsor_Click);
             // 
             // pnlCards
             // 
@@ -841,6 +854,7 @@ namespace DataverseStorageCostReducer.UI
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnPurgeWizard;
         private System.Windows.Forms.ToolStripButton btnCancel;
+        private System.Windows.Forms.ToolStripButton btnSponsor;
         private System.Windows.Forms.Panel pnlCards;
         private System.Windows.Forms.Panel pnlCardStorage;
         private System.Windows.Forms.Label lblCardStorageVal;

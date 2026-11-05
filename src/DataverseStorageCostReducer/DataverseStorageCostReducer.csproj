@@ -10,6 +10,26 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <!-- NuGet Package Metadata -->
+    <IsPackable>true</IsPackable>
+    <PackageId>DataverseStorageCostReducer</PackageId>
+    <Version>1.0.0</Version>
+    <Title>Dataverse Storage &amp; Cost Reducer</Title>
+    <Authors>Apoorv Gupta</Authors>
+    <Company>Apoorv Gupta</Company>
+    <Description>Cut Microsoft Dataverse storage costs by 20% to 60%. Audit storage bloat, Pareto 80/20 cost drivers, attachments, audit partitions, and system jobs.</Description>
+    <PackageProjectUrl>https://github.com/apoorvgupta1709/DataverseStorageCostReducer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/apoorvgupta1709/DataverseStorageCostReducer</RepositoryUrl>
+    <PackageTags>XrmToolBox;XrmToolBoxPlugin;Dataverse;Dynamics365;PowerPlatform;Storage;Cost;Audit;Purge</PackageTags>
+    <PackageReleaseNotes>Initial public release of Dataverse Storage &amp; Cost Reducer for XrmToolBox.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- Place output inside lib\net48\Plugins for XrmToolBox Tool Library -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);AddPluginFilesToPackage</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +42,24 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
   </ItemGroup>
+
+  <!-- Package Icon and Readme -->
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <!-- Target to place the compiled DLL and PDB inside lib\net48\Plugins\ for XrmToolBox -->
+  <Target Name="AddPluginFilesToPackage">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(TargetPath)">
+        <PackagePath>lib\net48\Plugins</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include="$(TargetDir)$(TargetName).pdb" Condition="Exists('$(TargetDir)$(TargetName).pdb')">
+        <PackagePath>lib\net48\Plugins</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
 
   <Target Name="DeployToXrmToolBox" AfterTargets="Build">
     <PropertyGroup>

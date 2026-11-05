@@ -449,5 +449,10 @@ namespace DataverseStorageCostReducer.UI
             txtPurgeLog.SelectionStart = txtPurgeLog.Text.Length;
             txtPurgeLog.ScrollToCaret();
         }
+
+        private void btnSponsor_Click(object sender, EventArgs e)
+        {
+            DataverseStorageCostReducer.AppCode.Helpers.SponsorHelper.ShowSponsorDialog(this, "Dataverse Storage & Cost Reducer");
+        }
     }
 }

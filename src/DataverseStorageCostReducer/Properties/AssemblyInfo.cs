@@ -4,9 +4,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Dataverse Storage & Cost Reducer")]
 [assembly: AssemblyDescription("Audit, visualize, and reduce expensive Microsoft Dataverse storage costs across database, file, and audit layers.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("XrmToolBox Community")]
+[assembly: AssemblyCompany("Apoorv Gupta")]
 [assembly: AssemblyProduct("DataverseStorageCostReducer")]
-[assembly: AssemblyCopyright("Copyright © 2026")]
+[assembly: AssemblyCopyright("Copyright © 2026 Apoorv Gupta")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
